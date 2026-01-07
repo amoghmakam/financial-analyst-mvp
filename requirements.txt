@@ -1,0 +1,17 @@
+python-dotenv>=1.0.1
+requests>=2.32.3
+beautifulsoup4>=4.12.3
+lxml>=5.2.2
+tqdm>=4.66.4
+
+pandas>=2.2.2
+
+# RAG + vector
+faiss-cpu>=1.8.0.post1
+numpy>=1.26.4
+
+# LLM + embeddings
+openai>=1.40.0
+
+# Scheduling + agents (later)
+APScheduler>=3.10.4

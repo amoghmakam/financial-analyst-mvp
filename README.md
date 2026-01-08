@@ -1,18 +1,19 @@
  # Financial Analyst MVP – SEC Filings RAG + CrewAI
 
-- An end-to-end AI-powered financial analyst system that:
-
-- Scrapes real SEC EDGAR filings (8-K, 10-Q)
-
+**An end-to-end AI-powered financial analyst system that:**
+- Scrapes real **SEC EDGAR filings** (8-K, 10-Q)
+ 
 - Cleans and chunks filings into structured text
-
-- Stores embeddings in a FAISS vector database
-
-- Uses Retrieval-Augmented Generation (RAG) to answer analyst-style questions
-
-- Generates a daily financial brief
-
-- Orchestrates the entire workflow using CrewAI agents
+  
+- Stores embeddings in a **FAISS vector database**
+  
+- Uses Retrieval-Augmented Generation **(RAG)** to answer analyst-style questions
+  
+- Generates a **daily financial brief**
+  
+- Orchestrates the entire workflow using **CrewAI agents**
+  
+- Includes a **Streamlit localhost UI** for interactive querying
 
 **This project demonstrates practical LLM system design, data ingestion, vector search, and agent-based automation.**
 
@@ -69,7 +70,7 @@ TICKERS=AAPL,MSFT,NVDA,TSLA,AMZN
 
 
 
-**Usage**
+**Usage(terminal)**
 
 *Generate a daily report (without agents):*
 python automation/daily_report.py
@@ -87,6 +88,10 @@ python rag_pipeline/ask.py "What did Amazon disclose in its most recent 8-K?" --
 
 *Scheduling (Optional)*
 The system is cron-ready for daily execution (disabled by default): 30 8 * * * python -m automation.run_with_crewai
+
+**Usage(Streamlit)**
+pip install streamlit
+python -m streamlit run ui/app.py
 
 
 **Future Improvements**

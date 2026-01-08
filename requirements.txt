@@ -15,3 +15,4 @@ openai>=1.40.0
 
 # Scheduling + agents (later)
 APScheduler>=3.10.4
+streamlit>=1.32.0

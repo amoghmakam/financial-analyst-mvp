@@ -1,55 +1,40 @@
-Financial Analyst MVP – SEC Filings RAG + CrewAI
+ # Financial Analyst MVP – SEC Filings RAG + CrewAI
 
--An end-to-end AI-powered financial analyst system that:
+- An end-to-end AI-powered financial analyst system that:
 
--Scrapes real SEC EDGAR filings (8-K, 10-Q)
+- Scrapes real SEC EDGAR filings (8-K, 10-Q)
 
--Cleans and chunks filings into structured text
+- Cleans and chunks filings into structured text
 
--Stores embeddings in a FAISS vector database
+- Stores embeddings in a FAISS vector database
 
--Uses Retrieval-Augmented Generation (RAG) to answer analyst-style questions
+- Uses Retrieval-Augmented Generation (RAG) to answer analyst-style questions
 
--Generates a daily financial brief
+- Generates a daily financial brief
 
--Orchestrates the entire workflow using CrewAI agents
+- Orchestrates the entire workflow using CrewAI agents
 
-This project demonstrates practical LLM system design, data ingestion, vector search, and agent-based automation.
-Features
+**This project demonstrates practical LLM system design, data ingestion, vector search, and agent-based automation.**
 
--Live SEC EDGAR scraping (AAPL, MSFT, NVDA, TSLA, AMZN by default)
+Features:
 
--Incremental FAISS indexing (only embeds new documents)
+- Live SEC EDGAR scraping (AAPL, MSFT, NVDA, TSLA, AMZN by default)
 
--RAG Q&A grounded in real filings (no hallucinated summaries)
+- Incremental FAISS indexing (only embeds new documents)
 
--Daily analyst-style report with source links
+- RAG Q&A grounded in real filings (no hallucinated summaries)
 
--CrewAI multi-agent orchestration (Scraper → Indexer → Analyst)
+- Daily analyst-style report with source links
 
--Optional scheduled automation (cron-ready, disabled by default)
+- CrewAI multi-agent orchestration (Scraper → Indexer → Analyst)
 
-System Architecture
+- Optional scheduled automation (cron-ready, disabled by default)
 
-SEC EDGAR
-↓
-Scrapers
-↓
-Cleaned Docs
-↓
-Chunking
-↓
-Embeddings (OpenAI)
-↓
-FAISS Vector Store
-↓
-RAG Pipeline
-↓
-Daily Financial Brief
-↓
-CrewAI Agent Orchestration
+**System Architecture**
 
-Project Structure
+SEC EDGAR --> Scrapers --> Cleaned Docs --> Chunking --> Embeddings (OpenAI) --> FAISS Vector Store --> RAG Pipeline --> Daily Financial Brief --> CrewAI Agent Orchestration
+
+**Project Structure**
 
 financial-analyst-mvp/
 ├── agents/ # CrewAI agents and workflow
@@ -63,7 +48,7 @@ financial-analyst-mvp/
 ├── requirements.txt
 └── README.md
 
-Setup
+**Setup**
 1. Clone the repository
 git clone https://github.com/amoghmakam/financial-analyst-mvp.git
 cd financial-analyst-mvp
@@ -82,35 +67,36 @@ Edit .env and add your key:
 OPENAI_API_KEY=your_real_api_key_here
 TICKERS=AAPL,MSFT,NVDA,TSLA,AMZN
 
-Usage
 
-Generate a daily report (without agents):
+
+**Usage**
+
+*Generate a daily report (without agents):*
 python automation/daily_report.py
 
-output:
+the output:
 reports/daily_YYYY-MM-DD.txt
 
-Run the full CrewAI workflow:
+
+*Run the full CrewAI workflow:*
 python -m automation.run_with_crewai
 
-
-Ask a direct RAG question:
+*Ask a direct RAG question:*
 python rag_pipeline/ask.py "What did Amazon disclose in its most recent 8-K?" --ticker AMZN --doc-type 8-K --most-recent
 
 
-Scheduling (Optional)
-
+*Scheduling (Optional)*
 The system is cron-ready for daily execution (disabled by default): 30 8 * * * python -m automation.run_with_crewai
 
 
-Future Improvements
+**Future Improvements**
 
-Financial news ingestion (Yahoo Finance, CNBC)
+ - Financial news ingestion (Yahoo Finance, CNBC)
 
-Sentiment analysis per company
+ - Sentiment analysis per company
 
-Stock price correlation with filings
+ - Stock price correlation with filings
 
-Slack or email report delivery
+ - Slack or email report delivery
 
-Web UI (Streamlit or Gradio)
+ - Web UI (Streamlit or Gradio)
